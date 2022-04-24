@@ -3,17 +3,29 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
 // items
-import cartItems from "./cart-items";
+import { Provider } from "react-redux";
+// import reducer from "redux/users/reducer";
+import store from "redux/store";
+
 // redux stuff
+
+// import { createStore } from "redux";
+
+//  const store = createStore(reducer);
 
 function App() {
   // cart setup
 
+  //  store.dispatch({type:DECREASE})
+  console.log(store.getState());
+
   return (
-    <main>
-      <Navbar />
-      <CartContainer cart={cartItems} />
-    </main>
+    <Provider store={store}>
+      <main>
+        <Navbar />
+        <CartContainer />
+      </main>
+    </Provider>
   );
 }
 
